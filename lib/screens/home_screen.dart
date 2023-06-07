@@ -1,4 +1,5 @@
 import 'package:api_store_app/consts/global_colors.dart';
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -29,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -80,10 +82,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
+                SizedBox(
+                  height: size.height * 0.25,
+                  child: Swiper(
+                    itemCount: 3,
+                    itemBuilder: (ctx, index) {
+                      return const SaleWidget();
+                    },
+                    pagination: const SwiperPagination(
+                      alignment: Alignment.bottomCenter,
+                      builder: DotSwiperPaginationBuilder(
+                        color: Colors.white,
+                        activeColor: Colors.red,
+                      ),
+                    ),
+                    // control: const SwiperControl(),
+                  ),
                 ),
-                const SaleWidget(),
               ],
             ),
           )),
