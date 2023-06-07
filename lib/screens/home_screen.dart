@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
+
+import '../widget/appbar_icons.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,8 +17,24 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () {
         FocusScope.of(context).unfocus();
       },
-      child: const Scaffold(
-        body: Center(
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 4.0,
+          title: const Text('Home'),
+          leading: Flexible(
+            child: AppBarIcons(
+              function: () {},
+              icon: IconlyBold.category,
+            ),
+          ),
+          actions: [
+            AppBarIcons(
+              function: () {},
+              icon: IconlyBold.user_3,
+            ),
+          ],
+        ),
+        body: const Center(
           child: Text('Welcome'),
         ),
       ),
