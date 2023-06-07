@@ -2,7 +2,8 @@ import 'package:api_store_app/consts/global_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
-import '../widget/appbar_icons.dart';
+import '../widgets/appbar_icons.dart';
+import '../widgets/sale_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -79,6 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 5,
+                ),
+                const SaleWidget(),
               ],
             ),
           )),
